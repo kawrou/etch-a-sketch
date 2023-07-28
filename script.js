@@ -1,4 +1,8 @@
 const GRID_CONTAINER = document.querySelector(".grid-container");
-let gridBox = document.createElement("div");
-gridBox.classList.add("js-grid-box")
-GRID_CONTAINER.appendChild(gridBox);
+
+for (i = 0; i < 256; i++){
+    let gridItem = document.createElement("div");
+    gridItem.classList.add("js-grid-item")
+    gridItem.setAttribute("id", i);
+    GRID_CONTAINER.appendChild(gridItem);
+}
