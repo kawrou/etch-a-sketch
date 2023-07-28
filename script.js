@@ -6,3 +6,11 @@ for (i = 0; i < 256; i++){
     gridItem.setAttribute("id", i);
     GRID_CONTAINER.appendChild(gridItem);
 }
+
+// GRID_CONTAINER.addEventListener("mouseover", (e)=>console.log(e));
+
+GRID_CONTAINER.addEventListener("click", function (e) {
+    if (e.target.id){
+        e.target.classList.add("js-grid-item--fill-black")
+    }});
+

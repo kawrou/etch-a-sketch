@@ -11,3 +11,7 @@
     grid-template-rows: repeat(16, 1fr);
     grid-template-columns: repeat(16, 1fr);
 }
+
+.js-grid-item--fill-black{
+    background-color: black;
+}
