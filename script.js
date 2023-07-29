@@ -1,3 +1,4 @@
+const GRID_BUTTON = document.querySelector("button");
 const GRID_CONTAINER = document.querySelector(".grid-container");
 
 for (i = 0; i < 256; i++){
@@ -13,4 +14,23 @@ GRID_CONTAINER.addEventListener("click", function (e) {
     if (e.target.id){
         e.target.classList.add("js-grid-item--fill-black")
     }});
+
+// let gridSize = ""; 
+// console.log(gridSize); 
+
+let getGridSize = function(){
+    let gridSize = prompt("Enter number");
+    console.log(gridSize); 
+    return; 
+}
+
+GRID_BUTTON.addEventListener("click", getGridSize); 
+
+// GRID_BUTTON.addEventListener("click", () => 
+// {
+//     gridSize = prompt("Enter number.");
+//     console.log(gridSize);
+//     return;
+// }); 
+
 
