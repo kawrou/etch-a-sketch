@@ -49,10 +49,16 @@ CLEAR_BUTTON.addEventListener("click",clearGrid);
     
 
 function clearGrid(){
+    let removeElm = GRID_CONTAINER.querySelectorAll(".js-grid-item--fill-black"); 
+    removeElm.forEach(n=> n.classList.toggle("js-grid-item--fill-black")); 
+    
     // Question - Can use the forEach array method with selecting that collection of DOM?
-    GRID_CONTAINER.querySelectorAll("div").forEach(n => n.remove()); 
+    // GRID_CONTAINER.querySelectorAll("js-grid-item--fill-black").forEach(n => n.classList.toggle("js-grid-item--fill-black")); 
 
+    // Looking online, it says will get an HTML collection
+    // GRID_CONTAINER.querySelectorAll(".js-grid-item--fill-black").classList.toggle("js-grid-item--fill-black"); 
+    
     // let removeElm = GRID_CONTAINER.querySelectorAll(".js-grid-item"); 
-    // removeElm.remove(); - doesn't work - returns not a function. 
-    // removeElm.forEach(n => n.remove()); 
+    // removeElm.remove(); -- not a function
+    // removeElm.forEach(n => n.remove()); -- removes all DIV elements  
 }; 
