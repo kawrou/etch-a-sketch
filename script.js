@@ -2,6 +2,7 @@ const GRID_BUTTON = document.getElementById("grid-button");
 const GRID_CONTAINER = document.querySelector(".grid-container");
 
 function drawGrid(gridSize){
+    gridSize *= gridSize;  
 for (i = 0; i < gridSize; i++){
     let gridItem = document.createElement("div");
     gridItem.classList.add("js-grid-item")
@@ -17,18 +18,21 @@ GRID_CONTAINER.addEventListener("mouseover", function (e) {
     }});
 
 let getGridSize = function(){
+    removeGrid(); 
     let gridSize = prompt("Enter number");
-    if (isNaN(parseInt(gridSize))){
-        alert("Please input digits only")
-    } 
-    else if (gridSize > 100){
-        alert("Please input up to 100 only")
-    }
-    else {
     makeRowCol(gridSize); 
-    gridSize *= gridSize
     drawGrid(gridSize); 
-    }
+    // if (isNaN(parseInt(gridSize))){
+    //     alert("Please input digits only")
+    // } 
+    // else if (gridSize > 100){
+    //     alert("Please input up to 100 only")
+    // }
+    // else {
+    // makeRowCol(gridSize); 
+    // gridSize *= gridSize
+    // drawGrid(gridSize); 
+    // }
 }
 
 GRID_BUTTON.addEventListener("click", getGridSize); 
@@ -40,6 +44,13 @@ GRID_BUTTON.addEventListener("click", getGridSize);
 
 // Need some explanation about this code. 
 function makeRowCol(gridSize){
-    document.documentElement.style.setProperty("--rowNum", gridSize); 
-    document.documentElement.style.setProperty("--colNum", gridSize); 
+    GRID_CONTAINER.style.setProperty("--rowNum", gridSize); 
+    GRID_CONTAINER.style.setProperty("--colNum", gridSize); 
+    // document.documentElement.style.setProperty("--rowNum", gridSize); 
+    // document.documentElement.style.setProperty("--colNum", gridSize); 
+}
+
+function removeGrid(){
+    let delDiv = GRID_CONTAINER.querySelectorAll(".js-grid-item"); 
+    delDiv.forEach(n => n.remove()); 
 }
