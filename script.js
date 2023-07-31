@@ -18,8 +18,18 @@ GRID_CONTAINER.addEventListener("mouseover", function (e) {
 
 let getGridSize = function(){
     let gridSize = prompt("Enter number");
+    makeRowCol(gridSize); 
     gridSize *= gridSize
     drawGrid(gridSize); 
 }
 
 GRID_BUTTON.addEventListener("click", getGridSize); 
+
+// let htmlStyles = window.getComputedStyle(document.querySelector("html"));
+// let rowNum = parseInt(htmlStyles.getPropertyValue("--rowNum"));
+// let colNum = parseInt(htmlStyles.getPropertyValue("--colNum"));
+
+function makeRowCol(gridSize){
+    document.documentElement.style.setProperty("--rowNum", gridSize); 
+    document.documentElement.style.setProperty("--colNum", gridSize); 
+}
