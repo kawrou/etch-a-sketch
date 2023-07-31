@@ -18,9 +18,17 @@ GRID_CONTAINER.addEventListener("mouseover", function (e) {
 
 let getGridSize = function(){
     let gridSize = prompt("Enter number");
+    if (isNaN(parseInt(gridSize))){
+        alert("Please input digits only")
+    } 
+    else if (gridSize > 100){
+        alert("Please input up to 100 only")
+    }
+    else {
     makeRowCol(gridSize); 
     gridSize *= gridSize
     drawGrid(gridSize); 
+    }
 }
 
 GRID_BUTTON.addEventListener("click", getGridSize); 
