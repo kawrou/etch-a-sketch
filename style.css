@@ -1,3 +1,8 @@
+:root{
+    --rowNum: 16;
+    --colNum: 16;
+}
+
 .js-grid-item{
     border: 1px solid black;
 }
@@ -8,8 +13,8 @@
     width: 500px;
     height: 500px;
     display: grid;
-    grid-template-rows: repeat(16, 1fr);
-    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(var(--rowNum), 1fr);
+    grid-template-columns: repeat(var(--colNum), 1fr); 
 }
 
 .js-grid-item--fill-black{
