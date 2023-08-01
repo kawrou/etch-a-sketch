@@ -1,4 +1,5 @@
 const GRID_BUTTON = document.getElementById("grid-button");
+const CLEAR_BUTTON = document.getElementById("clear-button"); 
 const GRID_CONTAINER = document.querySelector(".grid-container");
 
 function drawGrid(gridSize){
@@ -20,19 +21,17 @@ GRID_CONTAINER.addEventListener("mouseover", function (e) {
 let getGridSize = function(){
     removeGrid(); 
     let gridSize = prompt("Enter number");
+     if (isNaN(parseInt(gridSize))){
+        alert("Please input digits only")
+    } 
+    else if (gridSize > 100){
+        alert("Please input up to 100 only")
+    }
+    else {
+    
     makeRowCol(gridSize); 
     drawGrid(gridSize); 
-    // if (isNaN(parseInt(gridSize))){
-    //     alert("Please input digits only")
-    // } 
-    // else if (gridSize > 100){
-    //     alert("Please input up to 100 only")
-    // }
-    // else {
-    // makeRowCol(gridSize); 
-    // gridSize *= gridSize
-    // drawGrid(gridSize); 
-    // }
+    }
 }
 
 GRID_BUTTON.addEventListener("click", getGridSize); 
@@ -53,4 +52,11 @@ function makeRowCol(gridSize){
 function removeGrid(){
     let delDiv = GRID_CONTAINER.querySelectorAll(".js-grid-item"); 
     delDiv.forEach(n => n.remove()); 
+}
+
+CLEAR_BUTTON.addEventListener("click", clearGrid); 
+
+function clearGrid(){
+    let filledItm = GRID_CONTAINER.querySelectorAll(".js-grid-item--fill-black");
+    filledItm.forEach(n => n.classList.toggle("js-grid-item--fill-black")); 
 }
