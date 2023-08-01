@@ -12,7 +12,7 @@ GRID_CONTAINER.addEventListener("mouseover", function (e) {
 //Event listener for the button that changes the grid size.
 GRID_BUTTON.addEventListener("click", getGridSize); 
 
-let getGridSize = function(){
+function getGridSize(){
     let gridSize = prompt("Enter number");
     if (isNaN(parseInt(gridSize))){
         alert("Please input digits only")
